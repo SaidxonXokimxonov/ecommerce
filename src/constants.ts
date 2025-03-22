@@ -1,3 +1,87 @@
 import type { Data } from "./type";
 
-
+export const state: Data = {
+    products: [
+        {
+            id: 1,
+            name: 'Aviator Classic',
+            img: '',
+            brand: 'Ray-Ban',
+            price: 150000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 2,
+            name: 'Wayfarer',
+            img: '',
+            brand: 'Ray-Ban',
+            price: 140000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 3,
+            name: 'Clubmaster',
+            img: '',
+            brand: 'Ray-Ban',
+            price: 160000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 4,
+            name: 'Holbrook',
+            img: '',
+            brand: 'Oakley',
+            price: 180000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 5,
+            name: 'Frogskins',
+            img: '',
+            brand: 'Oakley',
+            price: 170000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 6,
+            name: 'Hexagonal Flat Lenses',
+            img: '',
+            brand: 'Ray-Ban',
+            price: 155000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 7,
+            name: 'Latch',
+            img: '',
+            brand: 'Oakley',
+            price: 165000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 8,
+            name: 'Round Metal',
+            img: '',
+            brand: 'Ray-Ban',
+            price: 145000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 9,
+            name: 'Sutro',
+            img: '',
+            brand: 'Oakley',
+            price: 190000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+        {
+            id: 10,
+            name: 'Erika',
+            img: '',
+            brand: 'Ray-Ban',
+            price: 135000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi.',
+        },
+    ],
+    cart :[]
+}
