@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../build/index.css" />
-    <title>Home</title>
+    <title>Shop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <script type="module" src="../build/index.js" defer></script>
   </head>
-  <body class="bg-[#F9F9F9]">
+  <body id="recomended-page">
     <header class="flex w-full justify-between px-[40px] pt-8">
       <div class="flex w-[45%] items-center gap-7">
         <img class="w-[150px]" src="./../image/logo.png" alt="" />
@@ -21,7 +21,7 @@
       </div>
       <div class="flex w-[45%] items-center justify-between">
         <div class="flex items-center gap-3">
-          <input type="search" class="outline-none w-[300px] border py-2 pl-4 text-[12px]" placeholder="Search product..." />
+          <input type="search" class="w-[300px] border py-2 pl-4 text-[12px] outline-none" placeholder="Search product..." />
           <i class="bi bi-bag text-bold cursor-pointer text-[20px]"></i>
         </div>
         <div class="flex gap-3">
@@ -30,26 +30,14 @@
         </div>
       </div>
     </header>
+
     <div class="container mx-auto my-10 px-[60px]">
       <div class="flex h-[400px] items-center justify-between bg-gray-100 pl-[64px]">
         <div class="flex w-[50%] flex-col items-start gap-6 py-5">
-          <p class="text-[44px]">
-            <span class="font-medium">See</span> everything <br />
-            with <span class="font-medium">Clarity</span>
-          </p>
-          <p class="text-[15px] font-medium text-gray-600">
-            Buying eyewear should leave you happy and good-looking, with money in your pocket. Glasses, sunglasses, and contacts—we’ve got your eyes covered.
-          </p>
-          <button class="bg-black px-6 py-3 text-white active:scale-95"><a href="./shop.html">Shop Now</a></button>
+          <p class="text-[44px] font-bold text-red-400">Recommended Products</p>
         </div>
-        <img class="h-full w-[55%]" src="../image/home-title.png" alt="" />
+        <img class="h-full w-[55%]" src="../image/recomended.png" alt="" />
       </div>
-
-      <div class="mb-5 mt-[64px] flex items-center justify-between scroll-smooth" id="featured">
-        <p class="text-[30px] font-semibold">Featured Products</p>
-        <a class="text-[20px] font-semibold underline" href="#">See All</a>
-      </div>
-      <div class="featured grid grid-cols-3 gap-5"></div>
 
       <div class="mb-5 mt-20 flex items-center justify-between scroll-smooth" id="recomended">
         <p class="text-[30px] font-semibold">Recommended Products</p>
@@ -58,13 +46,13 @@
       <div class="recommended grid grid-cols-3 gap-5"></div>
     </div>
 
-    <footer class="w-full flex justify-between px-[40px] items-center h-[180px] mt-[150px] bg-[#F0F0F0]">
-      <div class="text-[12px] font-semibold text-[gray]">Developed by <span class="text-black underline">JULIUS GUEVARRA</span> </div>
+    <footer class="mt-[100px] flex h-[180px] w-full items-center justify-between bg-[#F0F0F0] px-[40px]">
+      <div class="text-[12px] font-semibold text-[gray]">Developed by <span class="text-black underline">JULIUS GUEVARRA</span></div>
       <div class="flex flex-col items-center gap-2">
-        <img src="./../image/logo.png" alt="">
+        <img src="./../image/logo.png" alt="" />
         © 2025
       </div>
-      <div class="text-[12px] font-semibold text-[gray]">Fork this project <span class="text-black underline">HERE</span> </div>
+      <div class="text-[12px] font-semibold text-[gray]">Fork this project <span class="text-black underline">HERE</span></div>
     </footer>
   </body>
 </html>

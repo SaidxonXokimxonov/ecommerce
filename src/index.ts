@@ -1,5 +1,5 @@
 import { state } from './constants.js';
-import { featured } from './elements.js';
+import { featured, featuredPage, recommendedPage, shopPage } from './elements.js';
 import { recommended } from './elements.js';
 import { boxes } from './elements.js';
 
@@ -75,4 +75,18 @@ function renderFunction(){
 }
 
 
-renderFunction();
+
+function init(){
+    if(shopPage){
+        renderShopHtml();
+    }
+    else if(featuredPage){
+        renderFeatured()
+    }
+    else if(recommendedPage){
+        renderRecommend()
+    }
+    renderFunction()
+}
+
+window.addEventListener('load', init);
