@@ -72,7 +72,6 @@ function renderShopHtml() {
 function renderFunction(){
     renderFeatured();
     renderRecommend();
-    renderShopHtml();
 }
 
 
