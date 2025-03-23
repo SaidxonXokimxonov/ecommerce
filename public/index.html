@@ -4,10 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../build/index.css" />
-    <title>Movies</title>
+    <title>Home</title>
     <script type="module" src="../build/index.js" defer></script>
   </head>
-  <body >
-    
+  <body>
+    <div class="container mx-auto px-[60px] my-10">
+      <div class="grid grid-cols-2 items-center justify-between bg-gray-100 px-[64px]">
+        <div class="flex flex-col gap-6 items-start py-5">
+          <p class="text-[44px]"><span class="font-medium">See</span> everything <br> with <span class="font-medium">Clarity</span></p>
+          <p class="text-[18px] text-gray-600 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus cumque <br> atque aut natus velit tempore.</p>
+          <button class="bg-black text-white px-6 py-3 active:scale-95">Shop Now</button>
+        </div>
+        <img class="w-full" src="../image/home-title.png" alt="">
+      </div>
+
+      <div class="flex justify-between items-center mt-[64px] mb-5">
+        <p class="text-[30px] font-semibold">Featured Products</p>
+        <a class="font-semibold text-[20px] underline" href="#">See All</a>
+      </div>
+      <div class="featured grid grid-cols-3 gap-5"></div>
+
+      <div class="flex justify-between items-center mt-20 mb-5">
+        <p class="text-[30px] font-semibold">Recommended Products</p>
+        <a class="font-semibold text-[20px] underline" href="#">See All</a>
+      </div>
+      <div class="recommended grid grid-cols-3 gap-5"></div>
+    </div>
   </body>
 </html>
