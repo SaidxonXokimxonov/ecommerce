@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <script type="module" src="../build/index.js" defer></script>
   </head>
-  <body class="bg-[#F9F9F9]">
+  <body id="signUp-page" class="bg-[#F9F9F9]">
     <header class="flex w-full justify-between px-[40px] pt-8">
       <div class="flex w-[45%] items-center gap-7">
         <img class="w-[150px]" src="./../image/logo.png" alt="" />
@@ -29,5 +29,42 @@
         </div>
       </div>
     </header>
+    <div class="flex justify-center">
+      <div class="border border-gray-400 w-max m-10">
+        <div class="px-8 py-10 flex justify-between items-center gap-[60px]">
+          <form class="flex flex-col gap-3">
+            <p class="text-[20px] font-semibold mb-5">Sign up to Salinaka</p>
+            <label class="block cursor-pointer font-semibold text-gray-500 px-3" for="fullName">*Full name</label>
+            <input class="border border-gray-300 focus:outline-none px-5 py-2 w-[360px]" type="text" id="fullName" placeholder="John Doe">
+            <label class="block cursor-pointer font-semibold text-gray-500 px-3" for="email">*Email</label>
+            <input class="focus:outline-none border border-gray-300 px-5 py-2 w-[360px]" type="email" id="email" placeholder="Enter your email">
+            <label class="block cursor-pointer font-semibold text-gray-500 px-3" for="password">*Password</label>
+            <input class="focus:outline-none border border-gray-300 px-5 py-2 w-[360px]" type="password" id="password" placeholder="Your password">
+            <div class="text-right mt-2">
+              <button id="signUp" class="bg-black text-white px-5 py-3 font-semibold active:scale-95 w-max">Sign Up</button>
+            </div>
+          </form>
+          <div class="border-l border-gray-300 h-[200px]"></div>
+          <div class="flex flex-col gap-5">
+            <button class="hover:bg-blue-600 transition-all flex items-center gap-5 p-4 bg-blue-500 text-white font-semibold active:scale-95"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" enable-background="new 0 0 100 100" viewBox="0 0 100 100" id="facebook">
+              <circle cx="50" cy="50" r="47.761" fill="#9cbefd"></circle>
+              <path fill="#f7f7f7" d="M62.154,39.241h-8.183v-6.304c0-2.364,1.562-2.92,2.674-2.92h6.774V19.621l-9.336-0.039
+                  c-10.362,0-12.716,7.761-12.716,12.718v6.931H33.5v10.711h7.866v30.477H53.97V49.941h8.184V39.241z"></path>
+            </svg> Continue with Facebook</button>
+            <button class="hover:bg-gray-200 flex items-center gap-5 p-4 border border-gray-400 font-semibold active:scale-95"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" id="google">
+              <path d="m12 10.282h11.328c.116.6.184 1.291.187 1.997v.003c.001.066.002.144.002.222 0 2.131-.527 4.139-1.457 5.901l.033-.069c-.941 1.762-2.324 3.18-4.004 4.137l-.051.027c-1.675.945-3.677 1.502-5.809 1.502-.081 0-.162-.001-.242-.002h.012c-.013 0-.029 0-.044 0-1.672 0-3.263-.348-4.704-.975l.076.03c-2.902-1.219-5.164-3.482-6.354-6.306l-.029-.077c-.598-1.379-.945-2.985-.945-4.672s.348-3.293.975-4.75l-.03.078c1.219-2.902 3.482-5.164 6.306-6.354l.077-.029c1.364-.597 2.953-.944 4.624-.944h.051-.003c.059-.001.129-.002.199-.002 3.045 0 5.811 1.197 7.853 3.147l-.004-.004-3.266 3.141c-1.188-1.152-2.81-1.863-4.598-1.863-.065 0-.129.001-.194.003h.009c-.014 0-.03 0-.047 0-1.358 0-2.629.378-3.711 1.034l.032-.018c-2.246 1.358-3.725 3.788-3.725 6.562s1.479 5.204 3.691 6.543l.034.019c1.051.638 2.321 1.016 3.679 1.016h.05-.003.083c.864 0 1.695-.137 2.474-.392l-.056.016c.716-.222 1.339-.542 1.893-.95l-.017.012c.486-.373.907-.794 1.268-1.264l.012-.016c.312-.393.582-.841.79-1.321l.015-.039c.149-.35.271-.759.346-1.184l.005-.035h-6.811z"></path>
+            </svg> Continue with Google</button>
+            <button class="flex items-center gap-5 p-4 bg-black text-white font-semibold active:scale-95"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" id="github">
+              <path fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 4.77 5.07 5.07 0 0 0 18.91 1S17.73.65 15 2.48a13.38 13.38 0 0 0-7 0C5.27.65 4.09 1 4.09 1A5.07 5.07 0 0 0 4 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 8 18.13V22"></path>
+            </svg> Continue with Github</button>
+          </div>
+        </div>
+
+        <div class="bg-gray-200 flex justify-center gap-10 items-center py-5 border-t border-gray-400">
+          <p class="text-gray-800 text-[14px] font-semibold">Already have an account?</p>
+          <a href="#"><button class="text-[14px] font-semibold px-3 py-2 border border-gray-300 active:scale-95">Sign In</button></a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
