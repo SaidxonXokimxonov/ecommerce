@@ -22,7 +22,10 @@
       <div class="flex w-[45%] items-center justify-between">
         <div class="flex items-center gap-3">
           <input type="search" class="w-[300px] border py-2 pl-4 text-[12px] outline-none" placeholder="Search product..." />
-          <i class="bi bi-bag text-bold cursor-pointer text-[20px]"  id="openModalBtn"></i>
+          <div class="relative">
+            <i class="bi bi-bag text-bold cursor-pointer text-[20px]" id="openModalBtn"></i>
+            <div class="absolute top-[-10px] right-[-15px] text-white text-[11px] size-[20px] rounded-full grid place-items-center bg-red-600" id="cart-count">0</div>
+          </div>
         </div>
         <div class="flex gap-3">
           <a href="./signUp.html" class="bg-black px-4 py-2 text-[13px] font-semibold text-white">Sign up</a>
@@ -57,7 +60,7 @@
     <div id="modal" class="fixed left-0 top-0 flex h-screen w-full scale-0 justify-end bg-[#908e8e6b]">
       <div id="modalContent" class="relative h-full w-0 bg-white opacity-100 transition-all">
         <div class="flex items-center justify-between px-5 py-7">
-          <h1 class="text-xl font-semibold">My Basket <span class="text-[13px] font-normal">item(0)</span></h1>
+          <h1 class="text-xl font-semibold">My Basket <span id="item-count" class="text-[13px] font-normal"></span></h1>
           <div class="flex justify-center">
             <button id="btnClose" class="border px-4 py-2 text-[13px] font-semibold text-[#4F4A4A] transition-all hover:bg-[#E9E9E9]">Close</button>
             <button class="border px-4 py-2 text-[13px] font-semibold text-[#767373] transition-all hover:bg-[#E9E9E9]" id="clearModal">Clear Basket</button>

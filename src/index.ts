@@ -1,5 +1,6 @@
 import { state } from './constants.js';
 import {
+  cartCount,
   clearModal,
   closeBtn,
   email,
@@ -9,7 +10,6 @@ import {
   infoPage,
   itemCount,
   modal,
-  modalBody,
   modalContent,
   openModalBtn,
   recommendedPage,
@@ -40,7 +40,7 @@ function signInFunction() {
       console.log('Gmailni tekshiring yoki parolni kopaytiring');
     }
   });
-  renderModal()
+  renderModal();
 }
 
 function signUpFunction() {
@@ -72,7 +72,7 @@ function renderFeatured() {
   let res = state.products
     .map((item, idx) => {
       if (idx >= 6) return '';
-      return `<div class="border border-gray-300 cursor-pointer group">
+      return `<div class="border border-gray-300 cursor-pointer group" onclick='openInfo(${item.id})'>
                 <div class="bg-[#F6F6F6]">
                     <img class="w-[80%] block mx-auto group-hover:scale-110 transition-transform duration-300" src="../image/img${idx}.png" alt="">
                 </div>
@@ -115,7 +115,7 @@ function renderShopHtml() {
       let isInclude = cart.some(e => e.id === item.id);
 
       return `<div class="relative  border border-gray-300 cursor-pointer group overflow-hidden">
-                  
+                  <div class='absolute top-0 right-[5px]'>${isInclude ? '✔️' : ''}</div>
                  <div onclick='openInfo(${item.id})'>
                 <div class="bg-[#F6F6F6]">
                       <img class="w-[80%] block mx-auto group-hover:w-[50%] transition-all duration-500" src="../image/img${idx}.png" alt="">
@@ -138,6 +138,11 @@ function renderInfo() {
   let id = Number(localStorage.getItem('infoId'));
   let idx = state.products.findIndex(e => e.id === id);
   let item = state.products[idx];
+  const data = localStorage.getItem('cartStorage');
+  const cart = data ? (JSON.parse(data) as item[]) : [];
+  let isInclude = cart.some(e => e.id === id);
+  console.log(isInclude);
+  
 
   let res = `
   <div class="mx-auto flex h-[540px] w-[80%] justify-between border">
@@ -176,25 +181,30 @@ function renderInfo() {
             <div class="h-[30px] w-[30px] rounded-full bg-red-500"></div>
           </div>
           <p class="text-[30px] font-semibold">$ ${item.price}</p>
-          <button class="bg-black px-4 py-3 mt-6 text-[13px] font-semibold text-white">
+          ${
+            isInclude ? `<button id="info-remove-cart" class="bg-black px-4 py-3 mt-6 text-[13px] font-semibold text-white">
+            Remove From Cart
+          </button> ` : `<button id="info-add-cart" class="bg-black px-4 py-3 mt-6 text-[13px] font-semibold text-white">
             Add To Cart
-          </button>
+          </button>`
+          }        
         </div>
       </div>
   
   `;
 
-  infoContent.innerHTML = res.toString()
+  infoContent.innerHTML = res.toString();
 }
 
 function renderModal() {
+  const modalBody = document.querySelector('#modal-body') as HTMLDivElement;
   let t = 0;
   const data = localStorage.getItem('cartStorage');
   const cart = data ? (JSON.parse(data) as item[]) : [];
   console.log(cart);
   itemCount.innerText = `item( ${cart.length.toString()})`;
 
-  let r = cart.map(item => (t += item.price));
+  cart.map(item => (t += item.price));
 
   total.innerText = t.toString();
 
@@ -224,8 +234,6 @@ function renderModal() {
 
 // Shop Started
 
-
-
 function openInfo(id: number) {
   localStorage.setItem('infoId', id.toString());
   window.location.href = './info.html';
@@ -238,11 +246,18 @@ function addModal(id: number) {
   state.cart.push(state.products[idx]);
   cart.push(state.products[idx]);
   itemCount.innerText = `item( ${cart.length.toString()})`;
+  cartCount.innerText = cart.length.toString();
   localStorage.setItem('cartStorage', JSON.stringify(cart));
   console.log(cart);
 
-  renderModal();
-  renderShopHtml();
+  if(infoContent) {
+    renderInfo()
+    renderModal();
+  }
+  else {
+    renderModal();
+    renderShopHtml();
+  }
 }
 
 function removeModal(id: number) {
@@ -252,17 +267,24 @@ function removeModal(id: number) {
   state.cart.splice(idx, 1);
   cart.splice(idx, 1);
   itemCount.innerText = `item( ${cart.length.toString()})`;
+  cartCount.innerText = cart.length.toString();
 
   localStorage.setItem('cartStorage', JSON.stringify(cart));
   console.log(cart);
 
-  renderModal();
-  renderShopHtml();
+  if(infoContent) {
+    renderInfo()
+  }
+  else {
+    renderModal();
+    renderShopHtml();
+  }
 }
 
 function openModal() {
   modal.classList.replace('scale-0', 'scale-1');
   modalContent.classList.replace('w-0', 'w-[40%]');
+
   renderModal();
 }
 
@@ -271,14 +293,36 @@ function closeModal() {
   modalContent.classList.replace('w-[40%]', 'w-0');
 }
 
-openModalBtn.addEventListener('click', openModal);
-closeBtn?.addEventListener('click', closeModal);
-clearModal?.addEventListener('click', () => {
-  localStorage.clear();
-  renderModal();
-  renderShopHtml();
-});
+function addListeners() {
+  const data = localStorage.getItem('cartStorage');
+  const cart = data ? (JSON.parse(data) as item[]) : [];
+  cartCount.innerText = cart.length.toString();
+  const infoAddCart = document.querySelector('#info-add-cart') as HTMLButtonElement;
+  const infoRemoveCart = document.querySelector('#info-remove-cart') as HTMLButtonElement;
 
+  infoAddCart?.addEventListener('click', () => {
+    let id = Number(localStorage.getItem('infoId'));
+    addModal(id);
+    renderInfo();
+    console.log('add');
+    
+  });
+  infoRemoveCart?.addEventListener('click', () => {
+    let id = Number(localStorage.getItem('infoId'));
+    removeModal(id);
+    renderInfo();
+    console.log('remove');
+    
+  });
+  openModalBtn.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  clearModal?.addEventListener('click', () => {
+    localStorage.setItem('cartStorage', JSON.stringify([]))
+    renderModal();
+    renderShopHtml();
+    cartCount.innerText = '0';
+  });
+}
 
 function renderFunction() {
   renderFeatured();
@@ -301,6 +345,7 @@ function init() {
   } else {
     renderFunction();
   }
+  addListeners();
 }
 
 window.addEventListener('load', init);
