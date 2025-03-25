@@ -10,26 +10,26 @@
   </head>
   <body class="bg-[#F9F9F9]" id="shop-page">
     <header class="flex w-full justify-between px-[40px] pt-8">
-        <div class="flex w-[45%] items-center gap-7">
-          <img class="w-[150px]" src="./../image/logo.png" alt="" />
-          <div class="flex gap-1">
-            <a href="./index.html" class="px-3 py-2 text-[14px] font-medium text-[#848484] transition-all hover:bg-[#F5F5F5] hover:text-black">Home</a>
-            <a href="./shop.html" class="px-3 py-2 text-[14px] font-medium text-[#848484] transition-all hover:bg-[#F5F5F5] hover:text-black">Shop</a>
-            <a href="./featured.html" class="px-3 py-2 text-[14px] font-medium text-[#848484] transition-all hover:bg-[#F5F5F5] hover:text-black">Featured</a>
-            <a href="./recomended.html" class="px-3 py-2 text-[14px] font-medium text-[#848484] transition-all hover:bg-[#F5F5F5] hover:text-black">Recommended</a>
-          </div>
+      <div class="flex w-[45%] items-center gap-7">
+        <img class="w-[150px]" src="./../image/logo.png" alt="" />
+        <div class="flex gap-1">
+          <a href="./index.html" class="px-3 py-2 text-[14px] font-medium text-[#848484] transition-all hover:bg-[#F5F5F5] hover:text-black">Home</a>
+          <a href="./shop.html" class="px-3 py-2 text-[14px] font-medium text-[#848484] transition-all hover:bg-[#F5F5F5] hover:text-black">Shop</a>
+          <a href="./featured.html" class="px-3 py-2 text-[14px] font-medium text-[#848484] transition-all hover:bg-[#F5F5F5] hover:text-black">Featured</a>
+          <a href="./recomended.html" class="px-3 py-2 text-[14px] font-medium text-[#848484] transition-all hover:bg-[#F5F5F5] hover:text-black">Recommended</a>
         </div>
-        <div class="flex w-[45%] items-center justify-between">
-          <div class="flex items-center gap-3">
-            <input type="search" class="outline-none w-[300px] border py-2 pl-4 text-[12px]" placeholder="Search product..." />
-            <i class="bi bi-bag text-bold cursor-pointer text-[20px]"></i>
-          </div>
-          <div class="flex gap-3">
-            <a href="./signUp.html" class="bg-black px-4 py-2 text-[13px] font-semibold text-white">Sign up</a>
-            <a href="./signIn.html" class="border bg-[#F2F2F2] px-4 py-2 text-[13px] font-semibold text-[#7D7D7D]">Sign in</a>
-          </div>
+      </div>
+      <div class="flex w-[45%] items-center justify-between">
+        <div class="flex items-center gap-3">
+          <input type="search" class="w-[300px] border py-2 pl-4 text-[12px] outline-none" placeholder="Search product..." />
+          <i class="bi bi-bag text-bold cursor-pointer text-[20px]" id="openModalBtn"></i>
         </div>
-      </header>
+        <div class="flex gap-3">
+          <a href="./signUp.html" class="bg-black px-4 py-2 text-[13px] font-semibold text-white">Sign up</a>
+          <a href="./signIn.html" class="border bg-[#F2F2F2] px-4 py-2 text-[13px] font-semibold text-[#7D7D7D]">Sign in</a>
+        </div>
+      </div>
+    </header>
     <div class="container mx-auto mt-10 px-[60px]">
       <div class="boxes mb-10 grid grid-cols-6 gap-5"></div>
       <button class="mx-auto block bg-black px-7 py-3 text-white active:scale-95">Show More Items</button>
@@ -42,5 +42,27 @@
       </div>
       <div class="text-[12px] font-semibold text-[gray]">Fork this project <span class="text-black underline">HERE</span></div>
     </footer>
+
+    <div id="modal" class="fixed left-0 top-0 flex h-screen w-full scale-0 justify-end bg-[#908e8e6b]">
+      <div id="modalContent" class="relative h-full w-0 bg-white opacity-100 transition-all">
+        <div class="flex items-center justify-between px-5 py-7">
+          <h1 class="text-xl font-semibold">My Basket <span id="item-count" class="text-[13px] font-normal">item(0)</span></h1>
+          <div class="flex justify-center">
+            <button id="btnClose" class="border px-4 py-2 text-[13px] font-semibold text-[#4F4A4A] transition-all hover:bg-[#E9E9E9]">Close</button>
+            <button class="border px-4 py-2 text-[13px] font-semibold text-[#767373] transition-all hover:bg-[#E9E9E9]" id="clearModal">Clear Basket</button>
+          </div>
+        </div>
+        <div id="modal-body" class="h-[430px] overflow-y-auto border">
+          
+        </div>
+        <div class="absolute bottom-0 left-0 flex w-full items-center justify-between px-5 py-7">
+          <div>
+            <h3>Total</h3>
+            <h1>$<span id="total">0.00</span></h1>
+          </div>
+          <button class="bg-[#949494] px-7 py-3 font-bold text-white">CHECKOUT</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

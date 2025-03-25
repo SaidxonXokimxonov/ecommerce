@@ -5,6 +5,9 @@ export type item = {
   brand: string;
   price: number;
   description: string;
+  size: string;
+  count: number;
+  color: string
 }
 
 export type Data = {

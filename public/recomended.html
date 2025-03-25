@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../build/index.css" />
-    <title>Shop</title>
+    <title>Recommended</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <script type="module" src="../build/index.js" defer></script>
   </head>
@@ -22,7 +22,7 @@
       <div class="flex w-[45%] items-center justify-between">
         <div class="flex items-center gap-3">
           <input type="search" class="w-[300px] border py-2 pl-4 text-[12px] outline-none" placeholder="Search product..." />
-          <i class="bi bi-bag text-bold cursor-pointer text-[20px]"></i>
+          <i class="bi bi-bag text-bold cursor-pointer text-[20px]"  id="openModalBtn"></i>
         </div>
         <div class="flex gap-3">
           <a href="./signUp.html" class="bg-black px-4 py-2 text-[13px] font-semibold text-white">Sign up</a>
@@ -54,5 +54,26 @@
       </div>
       <div class="text-[12px] font-semibold text-[gray]">Fork this project <span class="text-black underline">HERE</span></div>
     </footer>
+    <div id="modal" class="fixed left-0 top-0 flex h-screen w-full scale-0 justify-end bg-[#908e8e6b]">
+      <div id="modalContent" class="relative h-full w-0 bg-white opacity-100 transition-all">
+        <div class="flex items-center justify-between px-5 py-7">
+          <h1 class="text-xl font-semibold">My Basket <span class="text-[13px] font-normal">item(0)</span></h1>
+          <div class="flex justify-center">
+            <button id="btnClose" class="border px-4 py-2 text-[13px] font-semibold text-[#4F4A4A] transition-all hover:bg-[#E9E9E9]">Close</button>
+            <button class="border px-4 py-2 text-[13px] font-semibold text-[#767373] transition-all hover:bg-[#E9E9E9]" id="clearModal">Clear Basket</button>
+          </div>
+        </div>
+        <div id="modal-body" class="h-[430px] overflow-y-auto border">
+          
+        </div>
+        <div class="absolute bottom-0 left-0 flex w-full items-center justify-between px-5 py-7">
+          <div>
+            <h3>Total</h3>
+            <h1>$<span id="total">0.00</span></h1>
+          </div>
+          <button class="bg-[#949494] px-7 py-3 font-bold text-white">CHECKOUT</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
